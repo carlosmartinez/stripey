@@ -28,6 +28,6 @@ describe StripePaymentsApi, :type => :feature do
 
   it 'retrieves recipient' do 
     StripePaymentsApi::create_recipient producer, token
-
+    expect(StripePaymentsApi::get_recipient(producer).name).to eq producer.name
   end
 end

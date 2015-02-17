@@ -9,4 +9,8 @@ module StripePaymentsApi
     producer.update_attributes!(recipient_id: recipient.id)
     recipient
   end
+
+  def self.get_recipient(producer)
+    Stripe::Recipient.retrieve(producer.recipient_id)
+  end
 end
