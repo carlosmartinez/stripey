@@ -15,18 +15,15 @@ describe StripePaymentsApi, :type => :feature do
   let(:payment) { create(:payment, line_item: line_item) }
 
   it 'creates recipient account' do
-    customer = StripePaymentsApi::create_account producer.name, producer.email, token
-    expect(customer.cards.total_count).to eq 1
+    recipient = StripePaymentsApi::create_recipient producer.name, producer.email, token
+    expect(recipient.cards.total_count).to eq 1
+    binding.pry
   end
 
   it 'errors if trying to create existing recipient account' do 
     expect do
-      2.times { StripePaymentsApi::create_account producer.name, producer.email, token }
+      2.times { StripePaymentsApi::create_recipient producer.name, producer.email, token }
     end.to raise_error
-  end
-
-  it 'creates payment to producer' do
-    
   end
 
 end
