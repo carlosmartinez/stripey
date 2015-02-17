@@ -25,4 +25,8 @@ describe StripePaymentsApi, :type => :feature do
     end.to raise_error
   end
 
+  it 'creates payment to producer' do
+    
+  end
+
 end
