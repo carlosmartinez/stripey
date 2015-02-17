@@ -1,6 +1,6 @@
 module StripePaymentsApi
-	def self.create_account(token)
-      customer = Stripe::Customer.create(description: 'dealership.name', card: token)
-      customer
-	end
+  def self.create_account(name, email, token)
+    customer = Stripe::Customer.create(description: name, email: email, card: token)
+    customer
+  end
 end

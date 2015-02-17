@@ -6,7 +6,7 @@ The epic is core to the reconciliation process during which we settle money that
 
 ## User stories
 
-- as the system i want automatically create a stripe recipient account for a producer if one does not exit so they can start to receive funds
+- as the system i want automatically create a stripe recipient account for a producer if one does not exist so they can start to receive funds
 - as the system i want to create a transfer on a line item to a producer for an amount less a 25% farmdrop fee so that they can be paid  
 - as a farmdrop admin i want to see all transfers created to producers so that i can see if they are correct
 
