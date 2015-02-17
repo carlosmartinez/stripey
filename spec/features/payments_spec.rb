@@ -5,14 +5,15 @@ require 'stripe_mock'
 
 describe StripePaymentsApi, :type => :feature do
 
-  let(:stripe_helper) { StripeMock.create_test_helper }
-  let(:token) { stripe_helper.generate_card_token }
   before { StripeMock.start }
   after { StripeMock.stop }
 
   let(:producer) { create(:producer) }
   let(:line_item) { create(:line_item, producer: producer) }
   let(:payment) { create(:payment, line_item: line_item) }
+
+  let(:stripe_helper) { StripeMock.create_test_helper }
+  let(:token) { stripe_helper.generate_card_token }
 
   it 'creates recipient account' do
     recipient = StripePaymentsApi::create_recipient producer, token
@@ -30,4 +31,5 @@ describe StripePaymentsApi, :type => :feature do
     StripePaymentsApi::create_recipient producer, token
     expect(StripePaymentsApi::get_recipient(producer).name).to eq producer.name
   end
+
 end
