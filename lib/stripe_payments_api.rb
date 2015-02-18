@@ -13,4 +13,14 @@ module StripePaymentsApi
   def self.get_recipient(producer)
     Stripe::Recipient.retrieve(producer.recipient_id)
   end
+
+  def self.transfer(payment)
+    transfer = Stripe::Transfer.create(
+      :amount => payment.amount,
+      :currency => 'usd',
+      :recipient => payment.line_item.producer.recipient_id,
+      :description => 'money innit'
+    )
+    transfer
+  end
 end

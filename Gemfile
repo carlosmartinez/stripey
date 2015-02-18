@@ -27,6 +27,6 @@ group :development, :test do
   gem 'spring'
   gem 'factory_girl_rails', require: false
   gem 'rspec-rails', '>= 3.0.0.beta2'
-  gem 'stripe-ruby-mock', '~> 2.0.4', require: 'stripe_mock'
+  gem 'stripe-ruby-mock', github: 'radicalise/stripe-ruby-mock', branch: 'master', require: 'stripe_mock'
   gem 'pry-rails'
 end

@@ -9,7 +9,7 @@ describe StripePaymentsApi, :type => :feature do
   after { StripeMock.stop }
 
   let(:producer) { create(:producer) }
-  let(:line_item) { create(:line_item, producer: producer) }
+  let(:line_item) { create(:line_item, producer: producer, cost: 40) }
   let(:payment) { create(:payment, line_item: line_item) }
 
   let(:stripe_helper) { StripeMock.create_test_helper }
@@ -32,4 +32,10 @@ describe StripePaymentsApi, :type => :feature do
     expect(StripePaymentsApi::get_recipient(producer).name).to eq producer.name
   end
 
+  it 'transfers money to recipient' do 
+    StripePaymentsApi::create_recipient producer, token
+    transfer = StripePaymentsApi::transfer payment
+    expect(transfer.amount).to eq 30
+    expect(transfer.status).to eq 'pending'
+  end
 end
