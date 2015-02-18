@@ -1,0 +1,6 @@
+%h1 Payments
+
+%ul
+  - @payments.each do |payment|
+    %li="#{payment.transfer_id} | #{payment.line_item.producer.name}"
+  

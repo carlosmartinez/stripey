@@ -22,6 +22,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'haml-rails'
 
 group :development, :test do
   gem 'spring'
@@ -29,4 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.0.0.beta2'
   gem 'stripe-ruby-mock', github: 'radicalise/stripe-ruby-mock', branch: 'master', require: 'stripe_mock'
   gem 'pry-rails'
+  gem 'capybara-webkit'
+  gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git'
+  gem 'selenium-webdriver'
 end

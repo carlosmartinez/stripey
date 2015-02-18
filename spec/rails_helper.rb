@@ -4,6 +4,9 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 
+require 'capybara/rspec'
+require 'capybara/rails'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -49,3 +52,11 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+Capybara.register_driver :tweaked_firefox do |app|
+  profile = Selenium::WebDriver::Firefox::Profile.new
+  profile['dom.forms.number'] = false
+  Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => profile)
+end
+
+Capybara.javascript_driver = :tweaked_firefox
