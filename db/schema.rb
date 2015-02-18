@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217232007) do
+ActiveRecord::Schema.define(version: 20150218123616) do
 
   create_table "line_items", force: :cascade do |t|
     t.decimal  "cost"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150217232007) do
     t.integer  "line_item_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "transfer_id"
   end
 
   add_index "payments", ["line_item_id"], name: "index_payments_on_line_item_id"

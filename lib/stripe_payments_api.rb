@@ -21,6 +21,7 @@ module StripePaymentsApi
       recipient: payment.line_item.producer.recipient_id,
       description: 'money innit'
     )
+    payment.update_attributes!(transfer_id: transfer.id)
     transfer
   end
 end

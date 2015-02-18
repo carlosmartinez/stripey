@@ -37,6 +37,7 @@ describe StripePaymentsApi, :type => :feature do
     transfer = StripePaymentsApi::transfer payment
     expect(transfer.amount).to eq 30
     expect(transfer.status).to eq 'pending'
+    expect(payment.transfer_id).to eq transfer.id
   end
   
 end
