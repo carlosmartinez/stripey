@@ -1,13 +1,23 @@
 == Stripe payments tech test
 
-## Epic: Creating Producer Transfers
+=== Epic: Creating Producer Transfers
 
 The epic is core to the reconciliation process during which we settle money that is owed to our producers.
 
-## User stories
+=== User stories
 
 - as the system i want automatically create a stripe recipient account for a producer if one does not exist so they can start to receive funds
 - as the system i want to create a transfer on a line item to a producer for an amount less a 25% farmdrop fee so that they can be paid  
 - as a farmdrop admin i want to see all transfers created to producers so that i can see if they are correct
 
-## Instructions
+=== Instructions
+
+- Ensure you have the correct Ruby (2.1.2)
+- bundle install
+- bundle exec rspec spec
+
+=== Info
+
+- Tests in the usual place
+- Used a custom version of stripe_mock, as I needed support for transfers (hence the oddness of pointing to my own fork)
+- On hindsight, it would've been worth the time turning the user stories into Cucumber-style given-when-then features

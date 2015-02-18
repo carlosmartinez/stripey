@@ -1,7 +1,4 @@
 require 'rails_helper'
-require 'stripe_payments_api'
-require 'factory_girl_rails'
-require 'stripe_mock'
 
 describe 'payment admin panel' do
 
