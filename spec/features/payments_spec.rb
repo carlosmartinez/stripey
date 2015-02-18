@@ -38,4 +38,5 @@ describe StripePaymentsApi, :type => :feature do
     expect(transfer.amount).to eq 30
     expect(transfer.status).to eq 'pending'
   end
+  
 end

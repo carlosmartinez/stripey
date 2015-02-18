@@ -16,10 +16,10 @@ module StripePaymentsApi
 
   def self.transfer(payment)
     transfer = Stripe::Transfer.create(
-      :amount => payment.amount,
-      :currency => 'usd',
-      :recipient => payment.line_item.producer.recipient_id,
-      :description => 'money innit'
+      amount: payment.amount,
+      currency: 'usd',
+      recipient: payment.line_item.producer.recipient_id,
+      description: 'money innit'
     )
     transfer
   end
